@@ -3,7 +3,7 @@ import '../styles/GenreSelector.css';
 
 function GenreSelector() {
   const [genre, setGenre] = useState('');
-  const genres = ['Rock', 'Pop', 'Jazz', 'Classical', 'Electronic', 'Hip Hop', 'Country'];
+  const genres = ['Rock', 'Pop', 'Jazz', 'Classical', 'Electronic', 'Hip Hop', 'Country', 'Indie', 'Old-Timey'];
 
   const handleGenreChange = (e) => {
     setGenre(e.target.value);
@@ -13,7 +13,7 @@ function GenreSelector() {
     <div className="container">
       <div className="GenreSelector">
         <label htmlFor="genre-select" className="label">
-          Let's start by picking a sound you want:
+          Let's start by picking the sound you want:
         </label>
         <select
           id="genre-select"
