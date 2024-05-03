@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useRef, useEffect } from 'react';
+import './App.css';
+import GenreSelector from './components/GenreSelector';
+import Banner from './components/Banner';
+import LandingPage from './components/LandingPage';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const landingPageRef = useRef(null);
+
+  useEffect(() => {
+    let lastKnownScrollPosition = 0;
+    let ticking = false;
+
+    const handleScroll = () => {
+      lastKnownScrollPosition = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = lastKnownScrollPosition;
+          const landingPageContent = landingPageRef.current;
+          const opacity = 1 - scrollPosition / (window.innerHeight * 0.5);
+          const scale = 1 + (scrollPosition * 1.1) / (window.innerHeight * 0.3);
+          const blur = (scrollPosition / (window.innerHeight * 0.5)) * 5;
+
+          if (landingPageContent) {
+            landingPageContent.style.opacity = Math.max(0, opacity);
+            landingPageContent.style.transform = `scale(${Math.min(2, scale)})`;
+            landingPageContent.style.filter = `blur(${Math.min(10, blur)}px)`;
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <Banner />
+      <div className="page">
+        <div className="page-section landing-page">
+          <div className="landing-page-content" ref={landingPageRef}>
+            <LandingPage />
+          </div>
+        </div>
+        <div className="page-section genre-selector">
+          <GenreSelector />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
