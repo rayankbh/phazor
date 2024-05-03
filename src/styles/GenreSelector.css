@@ -1,0 +1,75 @@
+.genre-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Platypi', sans-serif;
+    background-color: #181818;
+    color: white;   
+    width: 100%;
+    
+}
+
+.GenreSelector {
+    height: 100vh;
+    display: flex;
+    font-family: 'Platypi', sans-serif;
+
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    overflow-x: hidden; 
+}
+
+.label {
+    font-size: 3vw; 
+    text-align: center; 
+    margin-bottom: 10px; /* Adds space between the label and the select dropdown */
+    text-shadow: 0px 0px 20px #9B59B6; /* Initial shadow color */
+    animation: glow 3s ease-in-out infinite alternate; /* Animation for glowing effect */
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0px 0px 40px #ccb3d6;
+    }
+    50% {
+        text-shadow: 0px 0px 40px #F5EEF8;
+    }
+}
+
+.select {
+    margin-top: 1.4vh;
+    font-size: 2.5vw;
+    color: rgba(181, 181, 181, 0.559); /* Text color inside dropdown */
+    width: auto;  /* Full width for easier mobile access */
+    font-family: 'Platypi', sans-serif;
+    background-color: transparent;
+    border-bottom: #9B59B6;
+    border: 0;
+    font-style: italic;
+    text-align-last:center;
+    
+
+}
+
+
+/* Media Queries for different screen widths */
+@media (min-width: 768px) {
+    .label-select-container {
+        flex-direction: row; 
+        width: auto; 
+    }
+
+    .label {
+        margin-bottom: 0; 
+        margin-right: 10px; /* Adds right margin on larger screens */
+    }
+
+    .select {
+        width: auto; /* Adjust width to content size */
+    }
+}
+
