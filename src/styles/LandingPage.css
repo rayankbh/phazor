@@ -6,7 +6,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url('../images/landing-background.png') ; 
+    background-image: linear-gradient(32deg, #0bd1ff, #ffa3ff, #ffd34e);
+
     background-size: cover;
     color: white; 
     scroll-snap-align: start; 
@@ -41,6 +42,11 @@
   .landing-page-content h1:hover {
     transform: scale(1.1);
     z-index: 1;  
+  }
+
+  .landing-logo {
+    width: 15vw;  
+    height: auto;  
   }
 
   @keyframes glow {
