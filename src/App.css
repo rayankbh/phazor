@@ -11,18 +11,20 @@ body {
 
 .page {
   position: relative;
-  height: 100vh;  /* This should ensure that each .page takes only the height of the viewport */
-  width: 100%;  /* Ensures the page takes full width */
+  height: 100vh;  
+  width: 100%;  
   
 }
 
 .page-section {
   position: sticky;
   top: 0;
-  height: 100vh;  /* Ensures each section does not exceed the viewport height */
-  width: 100vw;  /* Covers full width */
+  height: 100vh;  
+  width: 100vw;  
 }
 
 .landing-page-content {
   transition: opacity 0.5s ease, transform 0.75s ease;
 }
+
+

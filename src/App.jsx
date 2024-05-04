@@ -3,6 +3,8 @@ import './App.css';
 import GenreSelector from './components/GenreSelector';
 import Banner from './components/Banner';
 import LandingPage from './components/LandingPage';
+import FileUploader from './components/FileUploader';
+import FluidSimulation from './components/FluidSimulation';
 
 function App() {
   const landingPageRef = useRef(null);
@@ -40,6 +42,7 @@ function App() {
   return (
     <div className="App">
       <Banner />
+
       <div className="page">
         <div className="page-section landing-page">
           <div className="landing-page-content" ref={landingPageRef}>
