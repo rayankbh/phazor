@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/Banner.css'; // Ensure you have the correct path
-import logo from '../images/logo.svg'; // Ensure you have the correct path
+import '../styles/Banner.css'; 
+import logo from '../images/logo.svg'; 
 
 function Banner() {
     return (
